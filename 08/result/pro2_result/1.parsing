@@ -1,0 +1,60 @@
+import sys,re,os,string,glob
+
+########################
+def READ_modeltest(fname):
+	fp=open(fname,"r")
+	check = 0
+	for line in fp:
+		if( line.startswith('*         HIERARCHICAL LIKELIHOD RATIO TESTS (hLRTs)          *') ):
+			check = 1
+			tempcheck = 0
+			hLRT = []
+		elif( check == 1 and line.startswith(' Model selected:') ):
+			line_temp = string.split(line.strip(),":")
+			hLRT_model = line_temp[1].strip()
+		elif( check == 1 and line.startswith('BEGIN PAUP;') ):
+			tempcheck = 1
+		elif( check == 1 and line.startswith('Lset') and tempcheck == 1 ):
+			line_temp = string.split(line)
+			for value in line_temp:
+				if( value.startswith('Nst=') ):
+					hLRT.append(value)
+				elif( value.startswith('Rates=') ):
+					hLRT.append(value)	
+			tempcheck = 0
+		elif( check == 1 and line.startswith('END;') ):
+			check = 0
+		elif( line.startswith('*             AKAIKE INFORMATION CRITERION (AIC)              *') ):
+			check = 2
+			tempcheck = 0
+			AIC = []
+		elif( check == 2 and line.startswith(' Model selected:') ):
+			line_temp = string.split(line.strip(),":")
+			AIC_model = line_temp[1].strip()
+		elif( check == 2 and line.startswith('BEGIN PAUP;') ):
+			tempcheck = 1
+		elif( check == 2 and line.startswith('Lset') and tempcheck == 1 ):
+			line_temp = string.split(line)
+			for value in line_temp:
+				if( value.startswith('Nst=') ):
+					AIC.append(value)
+				elif( value.startswith('Rates=') ):
+					AIC.append(value)	
+			tempcheck = 0
+		elif( check == 2 and line.startswith('END;') ):
+			check = 0
+	fp.close()
+
+	return hLRT_model,AIC_model,hLRT,AIC
+########################
+# main
+########################
+fpout=open("result.list","w")
+fpout.write("filename\thLRT_model\tAIC_model\thLRT_Nst\tAIC_Nst\thLRT_rates\tAIC_rates\n")
+flist = glob.glob("MODEL/*.model")
+for fname in flist:
+	basename = os.path.basename(fname)
+	hLRT_model,AIC_model,hLRT,AIC = READ_modeltest(fname)
+	fpout.write(basename+"\t"+hLRT_model+"\t"+AIC_model+"\t"+hLRT[0]+"\t"+AIC[0]+"\t"+hLRT[1]+"\t"+AIC[1]+"\n")
+fpout.close()
+

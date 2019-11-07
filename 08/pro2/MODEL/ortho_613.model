@@ -1,0 +1,213 @@
+
+
+Testing models of evolution - Modeltest 3.7
+(c) Copyright, 1998-2005 David Posada  (dposada@uvigo.es)
+Facultad de Biologia, Universidad de Vigo,
+Campus Universitario, 36310 Vigo, Spain
+_______________________________________________________________
+Thu Jan 25 15:53:03 2007
+OS = Unix-like
+
+Input format: PAUP* scores file 
+
+
+Run settings:
+  Using the standard AIC (not the AICc)
+  Not using branch lengths as parameters
+  Including all models in model-averaging calculations
+
+
+
+---------------------------------------------------------------
+*                                                             *
+*         HIERARCHICAL LIKELIHOD RATIO TESTS (hLRTs)          *
+*                                                             *
+---------------------------------------------------------------
+
+Confidence level = 0.01
+
+ Equal base frequencies
+   Null model = JC       			  -lnL0 = 527.8846
+   Alternative model = F81      	  -lnL1 = 495.5428
+   2(lnL1-lnL0) =   64.6835		      df = 3 
+   P-value = <0.000001
+ Ti=Tv
+   Null model = F81      			  -lnL0 = 495.5428
+   Alternative model = HKY      	  -lnL1 = 494.4106
+   2(lnL1-lnL0) =    2.2644		      df = 1 
+   P-value =  0.132377
+ Equal rates among sites
+   Null model = F81      			  -lnL0 = 495.5428
+   Alternative model = F81+G    	  -lnL1 = 495.5428
+   2(lnL1-lnL0) =    0.0000		      df = 1 
+   Using mixed chi-square distribution
+   P-value = >0.999999
+ No Invariable sites
+   Null model = F81      			  -lnL0 = 495.5428
+   Alternative model = F81+I    	  -lnL1 = 495.5428
+   2(lnL1-lnL0) =    0.0000		      df = 1 
+   Using mixed chi-square distribution
+   P-value = >0.999999
+
+ Model selected: F81
+  -lnL  =	495.5428
+   K    =	3
+   Base frequencies: 
+     freqA = 	 0.3751
+     freqC = 	 0.1063
+     freqG = 	 0.2207
+     freqT = 	 0.2979
+   Substitution model: 
+     All rates equal
+   Among-site rate variation
+     Proportion of invariable sites = 0
+     Variable sites (G)
+      Equal rates for all sites
+
+
+--
+
+PAUP* Commands Block: If you want to implement the previous estimates as likelihod settings in PAUP*, attach the next block of commands after the data in your PAUP file:
+
+
+[!
+Likelihood settings from best-fit model (F81) selected by hLRT in Modeltest 3.7 on Thu Jan 25 15:53:03 2007
+]
+
+BEGIN PAUP;
+Lset  Base=(0.3751 0.1063 0.2207)  Nst=1  Rates=equal  Pinvar=0;
+END;
+
+--
+
+
+
+
+---------------------------------------------------------------
+*                                                             *
+*             AKAIKE INFORMATION CRITERION (AIC)              *
+*                                                             *
+---------------------------------------------------------------
+
+
+ Model selected: TrN
+  -lnL  =	493.1147
+   K    =	5
+   AIC  =	996.2295
+
+   Base frequencies: 
+     freqA = 	 0.3760
+     freqC = 	 0.1053
+     freqG = 	 0.2213
+     freqT = 	 0.2973
+   Substitution model: 
+     Rate matrix
+     R(a) [A-C] = 	 1.0000
+     R(b) [A-G] = 	 0.0000
+     R(c) [A-T] = 	 1.0000
+     R(d) [C-G] = 	 1.0000
+     R(e) [C-T] = 	101880274944.0000
+     R(f) [G-T] = 	 1.0000
+   Among-site rate variation
+     Proportion of invariable sites = 0
+     Variable sites (G)
+      Equal rates for all sites
+
+
+--
+
+PAUP* Commands Block: If you want to implement the previous estimates as likelihod settings in PAUP*, attach the next block of commands after the data in your PAUP file:
+
+
+[!
+Likelihood settings from best-fit model (TrN) selected by AIC in Modeltest 3.7 on Thu Jan 25 15:53:03 2007
+]
+
+BEGIN PAUP;
+Lset  Base=(0.3760 0.1053 0.2213)  Nst=6  Rmat=(1.0000 0.0000 1.0000 1.0000 101880274944.0000)  Rates=equal  Pinvar=0;
+END;
+
+--
+
+
+ * MODEL SELECTION UNCERTAINTY : Akaike Weights
+
+Model             -lnL   K         AIC      delta     weight  cumWeight
+-----------------------------------------------------------------------
+TrN       	  493.1147	 5	  996.2295	   0.0000	  0.1696	 0.1696
+HKY       	  494.4106	 4	  996.8213	   0.5918	  0.1262	 0.2958
+F81       	  495.5428	 3	  997.0857	   0.8562	  0.1105	 0.4063
+TrN+I     	  493.1147	 6	  998.2295	   2.0000	  0.0624	 0.4687
+TrN+G     	  493.1147	 6	  998.2295	   2.0000	  0.0624	 0.5311
+TIM       	  493.1147	 6	  998.2295	   2.0000	  0.0624	 0.5935
+HKY+I     	  494.4049	 5	  998.8099	   2.5804	  0.0467	 0.6402
+HKY+G     	  494.4105	 5	  998.8210	   2.5916	  0.0464	 0.6866
+K81uf     	  494.4106	 5	  998.8213	   2.5918	  0.0464	 0.7330
+F81+I     	  495.5428	 4	  999.0857	   2.8562	  0.0407	 0.7737
+F81+G     	  495.5428	 4	  999.0857	   2.8562	  0.0407	 0.8144
+TrN+I+G   	  493.1147	 7	 1000.2295	   4.0000	  0.0230	 0.8373
+TIM+I     	  493.1147	 7	 1000.2295	   4.0000	  0.0230	 0.8603
+TIM+G     	  493.1147	 7	 1000.2295	   4.0000	  0.0230	 0.8832
+K81uf+I   	  494.1435	 6	 1000.2870	   4.0576	  0.0223	 0.9055
+HKY+I+G   	  494.4022	 6	 1000.8044	   4.5750	  0.0172	 0.9227
+K81uf+G   	  494.4082	 6	 1000.8164	   4.5869	  0.0171	 0.9399
+F81+I+G   	  495.5428	 5	 1001.0857	   4.8562	  0.0150	 0.9548
+TIM+I+G   	  493.1147	 8	 1002.2295	   6.0000	  0.0084	 0.9633
+GTR       	  493.1147	 8	 1002.2295	   6.0000	  0.0084	 0.9717
+K81uf+I+G 	  494.1435	 7	 1002.2870	   6.0576	  0.0082	 0.9799
+TVM       	  494.4106	 7	 1002.8213	   6.5918	  0.0063	 0.9862
+GTR+I     	  493.1147	 9	 1004.2295	   8.0000	  0.0031	 0.9893
+GTR+G     	  493.1147	 9	 1004.2295	   8.0000	  0.0031	 0.9924
+TVM+I     	  494.1435	 8	 1004.2870	   8.0576	  0.0030	 0.9954
+TVM+G     	  494.4082	 8	 1004.8164	   8.5869	  0.0023	 0.9977
+GTR+I+G   	  493.1147	10	 1006.2295	  10.0000	  0.0011	 0.9989
+TVM+I+G   	  494.1435	 9	 1006.2870	  10.0576	  0.0011	 1.0000
+K80       	  526.7859	 1	 1055.5719	  59.3424	2.21e-14	 1.0000
+TrNef     	  525.8743	 2	 1055.7487	  59.5192	2.02e-14	 1.0000
+JC        	  527.8846	 0	 1055.7692	  59.5397	2.00e-14	 1.0000
+K80+I     	  526.7859	 2	 1057.5719	  61.3424	8.11e-15	 1.0000
+K80+G     	  526.7859	 2	 1057.5719	  61.3424	8.11e-15	 1.0000
+K81       	  526.7859	 2	 1057.5719	  61.3424	8.11e-15	 1.0000
+TrNef+I   	  525.8743	 3	 1057.7487	  61.5192	7.43e-15	 1.0000
+TrNef+G   	  525.8743	 3	 1057.7487	  61.5192	7.43e-15	 1.0000
+TIMef     	  525.8743	 3	 1057.7487	  61.5192	7.43e-15	 1.0000
+JC+I      	  527.8846	 1	 1057.7692	  61.5397	7.35e-15	 1.0000
+JC+G      	  527.8846	 1	 1057.7692	  61.5397	7.35e-15	 1.0000
+K80+I+G   	  526.7859	 3	 1059.5719	  63.3424	2.98e-15	 1.0000
+K81+I     	  526.7859	 3	 1059.5719	  63.3424	2.98e-15	 1.0000
+K81+G     	  526.7859	 3	 1059.5719	  63.3424	2.98e-15	 1.0000
+TrNef+I+G 	  525.8743	 4	 1059.7487	  63.5192	2.73e-15	 1.0000
+TIMef+I   	  525.8743	 4	 1059.7487	  63.5192	2.73e-15	 1.0000
+TIMef+G   	  525.8743	 4	 1059.7487	  63.5192	2.73e-15	 1.0000
+JC+I+G    	  527.8846	 2	 1059.7692	  63.5397	2.70e-15	 1.0000
+K81+I+G   	  526.7859	 4	 1061.5719	  65.3424	1.10e-15	 1.0000
+TVMef     	  526.7859	 4	 1061.5719	  65.3424	1.10e-15	 1.0000
+TIMef+I+G 	  525.8743	 5	 1061.7487	  65.5192	1.00e-15	 1.0000
+SYM       	  525.8743	 5	 1061.7487	  65.5192	1.00e-15	 1.0000
+TVMef+I   	  526.7859	 5	 1063.5719	  67.3424	4.04e-16	 1.0000
+TVMef+G   	  526.7859	 5	 1063.5719	  67.3424	4.04e-16	 1.0000
+SYM+I     	  525.8743	 6	 1063.7487	  67.5192	3.70e-16	 1.0000
+SYM+G     	  525.8743	 6	 1063.7487	  67.5192	3.70e-16	 1.0000
+TVMef+I+G 	  526.7859	 6	 1065.5719	  69.3424	1.49e-16	 1.0000
+SYM+I+G   	  525.8743	 7	 1065.7487	  69.5192	1.36e-16	 1.0000
+-----------------------------------------------------------------------
+-lnL:		Negative log likelihod
+ K:			Number of estimated parameters
+ IC:		Information Criterion
+ delta:		Information difference
+ weight:	Information weight
+ cumWeight:	Cumulative information weight
+
+
+
+* MODEL AVERAGING AND PARAMETER IMPORTANCE (using Akaike Weights)
+  Including all 56 models
+
+                         Model-averaged
+Parameter   Importance        estimates
+---------------------------------------
+fA				0.9770		     0.3755
+fC				0.9770		     0.1059
+fG				0.9770		     0.2209
+fT				0.9770		     0.2977
+TiTv			0.2365		4747288719001870619210520418127446016.0000

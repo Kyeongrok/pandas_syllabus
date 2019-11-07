@@ -1,0 +1,14 @@
+filename,hLRT_model,AIC_model,hLRT_Nst,AIC_Nst,hLRT_rates,AIC_rates
+ortho_613.model,F81,TrN,Nst=1,Nst=6,Rates=equal,Rates=equal
+ortho_63.model,HKY,TVM+I,Nst=2,Nst=6,Rates=equal,Rates=equal
+ortho_81.model,HKY,HKY,Nst=2,Nst=2,Rates=equal,Rates=equal
+ortho_754.model,HKY+G,TIM+I,Nst=2,Nst=6,Rates=gamma,Rates=equal
+ortho_561.model,F81,HKY+I,Nst=1,Nst=2,Rates=equal,Rates=equal
+ortho_65.model,F81,HKY,Nst=1,Nst=2,Rates=equal,Rates=equal
+ortho_1465.model,HKY+G,HKY+I,Nst=2,Nst=2,Rates=gamma,Rates=equal
+ortho_1414.model,F81,HKY,Nst=1,Nst=2,Rates=equal,Rates=equal
+ortho_780.model,K81uf,K81uf+I,Nst=6,Nst=6,Rates=equal,Rates=equal
+ortho_1442.model,HKY,HKY+I,Nst=2,Nst=2,Rates=equal,Rates=equal
+ortho_1138.model,F81,F81,Nst=1,Nst=1,Rates=equal,Rates=equal
+ortho_467.model,HKY,HKY,Nst=2,Nst=2,Rates=equal,Rates=equal
+ortho_773.model,HKY+I+G,HKY+I,Nst=2,Nst=2,Rates=gamma,Rates=equal
